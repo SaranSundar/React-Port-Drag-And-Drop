@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
-import Box from "./Box";
+import PixiComponent2 from "./PixiComponent2";
 
 class App extends Component {
     render() {
         return (
-            <Box/>
+            <div>
+                {/*<Box num="1"/>*/}
+                {/*<Box num="2"/>*/}
+                <PixiComponent2/>
+            </div>
         );
     }
 }

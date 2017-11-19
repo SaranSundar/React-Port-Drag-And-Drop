@@ -1,8 +1,9 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-#box{
+
+.box {
     position: absolute;
     top: 45%;
     left: 45%;
@@ -11,7 +12,8 @@
     background-color: lightblue;
     border: 1px solid black;
 }
-h1{
+
+h1 {
     margin: 0;
     padding: 0;
 }

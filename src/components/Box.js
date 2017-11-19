@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import '../css/box.css';
-var OFFSET = 10;
-var onRightEdge, onLeftEdge, onBottomEdge, onTopEdge;
-var box;// = document.getElementById("box");
-var text;// = document.getElementById("text");
-var b, x, y, e;
-var clicked = null;
-var redraw = false;
-var minWidth = 150;
-var minHeight = 20;
+
+let OFFSET = 10;
+let onRightEdge, onLeftEdge, onBottomEdge, onTopEdge;
+let box;// = document.getElementById("box");
+let text;// = document.getElementById("text");
+let b, x, y, e;
+let clicked = null;
+let redraw = false;
+let minWidth = 150;
+let minHeight = 20;
 
 function init(stateBox) {
     OFFSET = 10;
@@ -41,14 +42,15 @@ function handleTouchMove(evt) {
 }
 
 function handleTouchEnd(evt) {
-    if (evt.touches.length == 0)
+    if (evt.touches.length === 0) {
         onUp(evt.changedTouches[0]);
+    }
 }
 
 
 function onDown(evt) {
     calc(evt);
-    var resizing = onTopEdge || onLeftEdge || onRightEdge || onBottomEdge;
+    let resizing = onTopEdge || onLeftEdge || onRightEdge || onBottomEdge;
 
     clicked = {
         x: x,
@@ -98,14 +100,14 @@ function animate() {
         if (clicked.onBottomEdge)
             box.style.height = Math.max(y, minHeight) + "px";
         if (clicked.onLeftEdge) {
-            var currentWidth = Math.max(clicked.cx - e.clientX + clicked.w, minWidth);
+            const currentWidth = Math.max(clicked.cx - e.clientX + clicked.w, minWidth);
             if (currentWidth > minWidth) {
                 box.style.width = currentWidth + 'px';
                 box.style.left = e.clientX + 'px';
             }
         }
         if (clicked.onTopEdge) {
-            var currentHeight = Math.max(clicked.cy - e.clientY + clicked.h, minHeight);
+            const currentHeight = Math.max(clicked.cy - e.clientY + clicked.h, minHeight);
             if (currentHeight > minHeight) {
                 box.style.height = currentHeight + 'px';
                 box.style.top = e.clientY + 'px';
@@ -143,7 +145,7 @@ class Box extends Component {
 
     render() {
         return (
-            <div ref={elem => this.box = elem} id="box"></div>
+            <div ref={elem => this.box = elem} className="box">{this.props.num}</div>
         );
     }
 }
